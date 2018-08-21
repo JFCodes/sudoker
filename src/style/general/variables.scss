@@ -1,0 +1,13 @@
+// BREAK POINTS
+$break-tablet: 400px;
+$break-desktop: 750px;
+$break-hd: 1000px;
+
+$background: #D5D6AA;
+
+$input-border: #EFEFEF;
+$square-border: #B5B2B1;
+
+$input-side: 30;
+$square-side: $input-side * 3 + 2; // compensate borders
+$box-side: $square-side * 3 + 6; // compensate borders
