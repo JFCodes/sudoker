@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     processImage (file) {
+      this.$emit('setLoadingState', 1)
       const canvas = document.createElement('canvas')
       const context = canvas.getContext('2d')
       let img = new Image()
@@ -58,8 +59,9 @@ export default {
             await this.getNumberFromImage(cropedImageBlob, line, column)
           }
         }
+
+        this.$emit('setLoadingState', -1)
       }
-      console.log(file)
       img.src = URL.createObjectURL(file)
     },
     async drawPortion (canvas, file) {
@@ -95,6 +97,7 @@ export default {
       })
     },
     async getNumberFromImage (image, line, column) {
+      this.$emit('setLoadingState', 1)
       let squareLine = Math.ceil(line / 3)
       let squareColumn = Math.ceil(column / 3)
       let inputLine = line % 3 === 0 ? 3 : line % 3
@@ -105,7 +108,7 @@ export default {
         tessedit_char_whitelist: ':/-0123456789'
       }).then(result => {
         let number = Number(result.text.replace(/(\r\n\t|\n|\r\t)/gm, ''))
-        console.log(result.text)
+        this.$emit('setLoadingState', -1)
         Solver.insertUserInput({
           squareKey: `${squareLine}-${squareColumn}`,
           inputKey: `${inputLine}-${inputColumn}`,
