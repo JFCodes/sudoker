@@ -11,6 +11,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "nuxt-dropzone": "^0.2.7",
+    "tesseract.js": "^1.0.10",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

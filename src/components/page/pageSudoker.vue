@@ -1,12 +1,14 @@
 <template>
   <div class="sudoker">
-    <box-inputs :inputs="inputs"/>
+    <box-inputs :inputs="inputs" />
+    <box-file />
     <menu-solver />
   </div>
 </template>
 
 <script>
 import boxInputs from '../boxes/boxInputs'
+import boxFile from '../boxes/boxFile'
 import menuSolver from '../menus/menuSolver'
 import Solver from '../../utils/solver'
 
@@ -22,6 +24,7 @@ export default {
   },
   components: {
     boxInputs,
+    boxFile,
     menuSolver
   }
 }
