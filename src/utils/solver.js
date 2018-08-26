@@ -146,9 +146,12 @@ class Solver {
     return this.inputs
   }
   insertUserInput ({squareKey, inputKey, value}) {
-    console.log({squareKey, inputKey, value})
     this.inputs[squareKey][inputKey].value = value
-    this.inputs[squareKey][inputKey].userInput = true
+    if (value === '' || value === undefined || value === null) {
+      this.inputs[squareKey][inputKey].userInput = false
+    } else {
+      this.inputs[squareKey][inputKey].userInput = true
+    }
   }
   insertSolverInput ({squareKey, inputKey, value}) {
     this.inputs[squareKey][inputKey].value = value
