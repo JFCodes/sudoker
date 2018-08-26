@@ -146,6 +146,7 @@ class Solver {
     return this.inputs
   }
   insertUserInput ({squareKey, inputKey, value}) {
+    console.log({squareKey, inputKey, value})
     this.inputs[squareKey][inputKey].value = value
     this.inputs[squareKey][inputKey].userInput = true
   }

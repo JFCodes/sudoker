@@ -30,6 +30,9 @@ export default {
     insertUserInput (element, inputKey) {
       let newValue = Number(element.value) || null
       element.value = newValue || ''
+      console.log(this.squareKey)
+      console.log(inputKey)
+      console.log(newValue)
       Solver.insertUserInput({
         squareKey: this.squareKey,
         inputKey: inputKey,

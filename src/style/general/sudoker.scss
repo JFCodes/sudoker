@@ -51,5 +51,20 @@
   .sudoker__file {
     margin-top: 45px;
     width: $box-side + px;
+
+    .sudoker__file-canvasGrid {
+      width: $box-side + px;
+      height: $box-side + px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      canvas {
+        width: $input-side + px;
+        height: $input-side + px;
+        border: 1px solid $input-border;
+      }
+    }
   }
 }
