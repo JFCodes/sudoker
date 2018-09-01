@@ -54,8 +54,7 @@ export default {
 
             let cropedImageBlob = await this.getImagePortion(img, newWidth, newHeight, newXPoristion, newYPoristion)
             let cropedImageFile = new File([cropedImageBlob], 'cropedImageFile')
-            let canvasElement = this.$refs[line + '-' + column]
-            if (this.showImagePortions) await this.drawPortion(canvasElement, cropedImageFile)
+            if (this.showImagePortions) await this.drawPortion(this.$refs[line + '-' + column][0], cropedImageFile)
             await this.getNumberFromImage(cropedImageBlob, line, column)
           }
         }
@@ -65,10 +64,10 @@ export default {
       img.src = URL.createObjectURL(file)
     },
     async drawPortion (canvas, file) {
-      let context = canvas[0].getContext('2d')
+      let context = canvas.getContext('2d')
       let img = new Image()
       img.onload = async () => {
-        await context.drawImage(img, 0, 0)
+        await context.drawImage(img, 0, 0, canvas.width, canvas.height)
       }
       img.src = URL.createObjectURL(file)
     },
